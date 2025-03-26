@@ -5,6 +5,8 @@ Py Osu!Auto
 
 __This bot only works and ALWAYS WILL only work with RELAX MOD toggled on, to discourage cheaters.__
 
+See the bot working [here](https://www.youtube.com/watch?v=yZ8OsLw9Gds) and [here](https://www.youtube.com/watch?v=LOEvBnLWcfc)
+
 
 # What is "Osu!"? <h1>
 Better than me explaining is you checking it with your own eyes. See it [here](https://osu.ppy.sh/home).
