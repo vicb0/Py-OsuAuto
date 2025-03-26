@@ -1,6 +1,9 @@
 Py Osu!Auto
 ===================
 
+# STOP!
+This bot is garbage. Take a look at [Py!OsuAuto V2](https://github.com/vicb0/Py-OsuAuto-V2)!
+
 **DISCLAIMER:** This bot is made for educational purposes only. I do not recommend using it on your account, log off before doing so.  
 
 __This bot only works and ALWAYS WILL only work with RELAX MOD toggled on, to discourage cheaters.__
