@@ -38,19 +38,31 @@ class Spinner(HitObjects):
 
 
 def convert_coordinates(hit_objects, screen_x, screen_y):
-    c = (4 / 3) / (screen_x / screen_y)
-    sx = screen_x / 2 - (0.8 * screen_x * c) / 2
-    sy = 0.2 * screen_y * (11 / 19)
+    sy = screen_y * 0.8
+    sx = (4 / 3) * sy
+
+    c = sy / 384
+
+    sy = (screen_y - sy) // 2 + 0.02 * screen_y
+    sx = (screen_x - sx) // 2
+
+    # c = (4 / 3) / (screen_x / screen_y)
+    # sx = screen_x / 2 - (0.8 * screen_x * c) / 2
+    # sy = 0.2 * screen_y * (11 / 19)
 
     for obj in hit_objects:
         if obj.obj != 3:
-            obj.x = int(sx + int(obj.x) * screen_x * 0.8 * c / 512)
-            obj.y = int(sy + int(obj.y) * screen_y * 0.8 / 384)
+            obj.x = int(sx + c * obj.x)
+            obj.y = int(sy + c * obj.y)
+            # obj.x = int(sx + int(obj.x) * screen_x * 0.8 * c / 512)
+            # obj.y = int(sy + int(obj.y) * screen_y * 0.8 / 384)
 
         if obj.obj == 2:
             for count, point in enumerate(obj.path):
-                x = int(sx + int(point[0]) * screen_x * 0.8 * c / 512)
-                y = int(sy + int(point[1]) * screen_y * 0.8 / 384)
+                x = int(sx + c * point[0])
+                y = int(sy + c * point[1])
+                # x = int(sx + int(point[0]) * screen_x * 0.8 * c / 512)
+                # y = int(sy + int(point[1]) * screen_y * 0.8 / 384)
 
                 obj.path[count] = (x, y)
 
@@ -389,7 +401,7 @@ def fix_stack(file_, HOs, c):
             stacked = 1
             continue
         if (ho.x, ho.y) == (HOs[count + 1].x, HOs[count + 1].y) and \
-                HOs[count + 1].offset * c  - ho.offset * c <= stack_time:
+                HOs[count + 1].offset * c - ho.offset * c <= stack_time:
             stacked += 1
         else:
             for stack in range(stacked - 1, 0, -1):

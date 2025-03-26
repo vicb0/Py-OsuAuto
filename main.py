@@ -79,6 +79,7 @@ def main():
     LOADED = False
     HOs = None
 
+    ctypes.windll.user32.SetProcessDPIAware()
     screen_x = ctypes.windll.user32.GetSystemMetrics(0)
     screen_y = ctypes.windll.user32.GetSystemMetrics(1)
     screen_dif = (0.6 / 19) * screen_y
